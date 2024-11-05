@@ -14,32 +14,28 @@
         <exec.mainClass>com.mycompany.lanchonete.Lanchonete</exec.mainClass>
     </properties>
     <dependencies>
-        <!-- Hibernate Core com suporte a JPA -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.6.10.Final</version>
         </dependency>
-        
-        <!-- PostgreSQL Driver -->
+
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.2.24</version>
         </dependency>
         
-        <!-- JPA API -->
         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>javax.persistence-api</artifactId>
             <version>2.2</version>
         </dependency>
-        
-        <!-- JUnit 5 para testes -->
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version> <!-- ou a versão mais recente disponível -->
+            <version>5.8.2</version> 
             <scope>test</scope>
         </dependency>
 

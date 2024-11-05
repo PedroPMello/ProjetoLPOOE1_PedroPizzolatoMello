@@ -44,8 +44,8 @@ public class LanchoneteTest {
 
     @Test
     public void testeConexao() {
-        assertNotNull(em); // Verifica se o EntityManager foi criado
-        assertTrue(em.isOpen()); // Verifica se a conexão está aberta
+        assertNotNull(em);
+        assertTrue(em.isOpen()); 
         System.out.println("Conexão realizada com sucesso");
     }
 
@@ -57,10 +57,10 @@ public class LanchoneteTest {
         cliente.setEndereco("Rua Teste, 123");
 
         em.persist(cliente);
-        em.getTransaction().commit(); // Comita a transação
+        em.getTransaction().commit();
 
-        Cliente clientePersistido = em.find(Cliente.class, cliente.getId()); // Supondo que existe um método getId()
-        assertNotNull(clientePersistido); // Verifica se o cliente foi persistido
+        Cliente clientePersistido = em.find(Cliente.class, cliente.getId());
+        assertNotNull(clientePersistido); 
         assertEquals("Teste de Cliente", clientePersistido.getNome());
         System.out.println("Cliente persistido com sucesso!");
     }
@@ -72,10 +72,10 @@ public class LanchoneteTest {
         produto.setPreco(10.00);
 
         em.persist(produto);
-        em.getTransaction().commit(); // Comita a transação
+        em.getTransaction().commit(); 
 
-        Produto produtoPersistido = em.find(Produto.class, produto.getId()); // Supondo que existe um método getId()
-        assertNotNull(produtoPersistido); // Verifica se o produto foi persistido
+        Produto produtoPersistido = em.find(Produto.class, produto.getId());
+        assertNotNull(produtoPersistido); 
         assertEquals("Teste de Produto", produtoPersistido.getNome());
         System.out.println("Produto persistido com sucesso!");
     }
@@ -88,24 +88,24 @@ public class LanchoneteTest {
         cliente.setEndereco("Rua Pedido, 456");
 
         em.persist(cliente);
-        em.getTransaction().commit(); // Comita a transação para o cliente
+        em.getTransaction().commit();
 
         Produto produto = new Produto();
         produto.setNome("Produto para Pedido");
         produto.setPreco(15.00);
 
         em.persist(produto);
-        em.getTransaction().commit(); // Comita a transação para o produto
+        em.getTransaction().commit(); 
 
         Pedido pedido = new Pedido();
         pedido.setCliente(cliente);
-        pedido.addProduto(produto); // Supondo que você tenha um método addProduto
+        pedido.addProduto(produto);
 
         em.persist(pedido);
-        em.getTransaction().commit(); // Comita a transação
+        em.getTransaction().commit();
 
-        Pedido pedidoPersistido = em.find(Pedido.class, pedido.getId()); // Supondo que existe um método getId()
-        assertNotNull(pedidoPersistido); // Verifica se o pedido foi persistido
+        Pedido pedidoPersistido = em.find(Pedido.class, pedido.getId()); 
+        assertNotNull(pedidoPersistido); 
         assertEquals(cliente.getId(), pedidoPersistido.getCliente().getId());
         System.out.println("Pedido persistido com sucesso!");
     }

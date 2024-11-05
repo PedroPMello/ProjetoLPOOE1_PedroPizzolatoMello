@@ -23,7 +23,6 @@ public class Lanchonete {
         try {
             em.getTransaction().begin();
 
-            // Inserir clientes
             Cliente cliente1 = new Cliente();
             cliente1.setNome("João da Silva");
             cliente1.setTelefone("123456789");
@@ -36,7 +35,7 @@ public class Lanchonete {
             cliente2.setEndereco("Rua B, 456");
             em.persist(cliente2);
 
-            // Inserir produtos
+
             Produto produto1 = new Produto();
             produto1.setNome("Refrigerante");
             produto1.setPreco(5.00);
@@ -47,11 +46,10 @@ public class Lanchonete {
             produto2.setPreco(10.00);
             em.persist(produto2);
 
-            // Inserir pedidos
+
             Pedido pedido1 = new Pedido();
             pedido1.setCliente(cliente1);
             pedido1.setData(new Date()); 
-            // Adicionar produtos ao pedido
             pedido1.addProduto(produto1);
             pedido1.addProduto(produto2);
             em.persist(pedido1);
@@ -59,7 +57,6 @@ public class Lanchonete {
             Pedido pedido2 = new Pedido();
             pedido2.setCliente(cliente2);
             pedido2.setData(new Date()); 
-            // Adicionar produtos ao segundo pedido
             pedido2.addProduto(produto1);
             em.persist(pedido2);
 

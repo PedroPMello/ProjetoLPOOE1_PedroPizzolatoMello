@@ -17,13 +17,13 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "nome", length = 100, nullable = false) // Tamanho máximo de 100 caracteres
+    @Column(name = "nome", length = 100, nullable = false) 
     private String nome;
 
-    @Column(name = "preco", nullable = false) // Não há necessidade de especificar tamanho para números
+    @Column(name = "preco", nullable = false) 
     private Double preco;
     
-    @Column(name = "descricao", length = 255) // Tamanho máximo de 255 caracteres
+    @Column(name = "descricao", length = 255)
     private String descricao;
 
     // Relação ManyToMany com Pedido

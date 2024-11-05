@@ -20,13 +20,13 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "nome", length = 100, nullable = false) // Tamanho máximo de 100 caracteres
+    @Column(name = "nome", length = 100, nullable = false) 
     private String nome;
 
-    @Column(name = "telefone", length = 15, nullable = false) // Tamanho máximo de 15 caracteres
+    @Column(name = "telefone", length = 15, nullable = false) 
     private String telefone;
 
-    @Column(name = "endereco", length = 255) // Tamanho máximo de 255 caracteres
+    @Column(name = "endereco", length = 255)
     private String endereco;
     
     // Relação One to Many com Pedido

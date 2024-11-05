@@ -34,11 +34,10 @@ public class Pedido {
     )
     private List<Produto> itens = new ArrayList<>();
     
-    // Se você quiser adicionar uma data ou outra propriedade ao pedido
     @Column(name = "data", nullable = false)
     private Date data;
     
-    @Column(name = "valor_total", nullable = false) // Valor total do pedido
+    @Column(name = "valor_total", nullable = false)
     private double valorTotal;
 
     public Long getID() {
@@ -83,7 +82,7 @@ public class Pedido {
     
     public void addProduto(Produto produto) {
         itens.add(produto);
-        produto.getPedidos().add(this); // Atualiza a lista de pedidos no produto
+        produto.getPedidos().add(this);
     }
     
     public Pedido(){
