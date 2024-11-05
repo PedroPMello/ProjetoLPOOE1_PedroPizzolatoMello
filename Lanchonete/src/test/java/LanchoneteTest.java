@@ -10,18 +10,17 @@
 import model.Cliente;
 import model.Produto;
 import model.Pedido;
-/*
-import org.junit.jupiter.After;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import org.junit.After;
 
 import static org.junit.Assert.*;
-import org.junit.jupiter.api.Test;
-
+/*
 public class LanchoneteTest {
     private EntityManagerFactory emf;
     private EntityManager em;
@@ -104,7 +103,7 @@ public class LanchoneteTest {
         em.persist(pedido);
         em.getTransaction().commit();
 
-        Pedido pedidoPersistido = em.find(Pedido.class, pedido.getId()); 
+        Pedido pedidoPersistido = em.find(Pedido.class, pedido.getID()); 
         assertNotNull(pedidoPersistido); 
         assertEquals(cliente.getId(), pedidoPersistido.getCliente().getId());
         System.out.println("Pedido persistido com sucesso!");

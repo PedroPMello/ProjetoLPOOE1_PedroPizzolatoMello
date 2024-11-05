@@ -9,8 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import model.Cliente;
-import model.Comida;
-import model.Bebida;
 import model.Pedido;
 import model.Produto;
 
