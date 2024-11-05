@@ -4,11 +4,18 @@
  */
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 /**
  *
  * @author pedro
  */
+@Entity
+@DiscriminatorValue("COMIDA")
 public class Comida extends Produto{
+    @Column(length = 255)
     private String ingredientes;
     
     public String getIngredientes(){
@@ -18,4 +25,14 @@ public class Comida extends Produto{
     public void setIngredientes(String ingredientes){
         this.ingredientes = ingredientes;
     }
+
+    public Comida(String ingredientes, Long id, String nome, String descricao, double preco) {
+        super(id, nome, descricao, preco);
+        this.ingredientes = ingredientes;
+    }
+    
+    public Comida() {
+        super();
+    }
+    
 }

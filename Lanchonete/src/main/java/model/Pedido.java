@@ -4,6 +4,7 @@
  */
 package model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,12 +13,42 @@ import java.util.List;
  *
  * @author pedro
  */
+@Entity
+@Table(name = "tb_pedidos")
 public class Pedido {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    // Relação Many to One com Cliente
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
+
+    // Relação ManyToMany com Produto
+    @ManyToMany(cascade = CascadeType.ALL) 
+    @JoinTable(
+        name = "tb_pedidos_produtos", 
+        joinColumns = @JoinColumn(name = "pedido_id"),
+        inverseJoinColumns = @JoinColumn(name = "produto_id")
+    )
     private List<Produto> itens = new ArrayList<>();
-    private Date dataHora;
+    
+    // Se você quiser adicionar uma data ou outra propriedade ao pedido
+    @Column(name = "data", nullable = false)
+    private Date data;
+    
+    @Column(name = "valor_total", nullable = false) // Valor total do pedido
     private double valorTotal;
-  
+
+    public Long getID() {
+        return id;
+    }
+
+    public void setID(Long id) {
+        this.id = id;
+    }
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -34,12 +65,12 @@ public class Pedido {
         this.itens = itens;
     }
 
-    public Date getDataHora() {
-        return dataHora;
+    public Date getData() {
+        return data;
     }
 
-    public void setDataHora(Date dataHora) {
-        this.dataHora = dataHora;
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public double getValorTotal() {
@@ -50,4 +81,13 @@ public class Pedido {
         this.valorTotal = valorTotal;
     }
     
+    public void addProduto(Produto produto) {
+        itens.add(produto);
+        produto.getPedidos().add(this); // Atualiza a lista de pedidos no produto
+    }
+    
+    public Pedido(){
+        
+    }
+   
 }
